@@ -1,0 +1,6 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+# Git will normalize all line endings of text files to LF.
+* text=auto
+
+# Declare files that should always have LF line endings on checkout.
+*.sh text eol=lf
