@@ -2,12 +2,46 @@
 <html lang="{% block html_language_code %}en{% endblock %}">
   <head>
     <meta charset="utf-8">
+    <!-- Force IE browsers to user their latest document mode.
+          Not needed since the "DOCTYPE html" does the same thing.
+          The only place this could be used is in Intranet websites
+          where IE browsers are forced into compatibility mode 
+          (IE browsers will render websites with an older version renderer)
+          by the administrators. Technically, users can manually force
+          their IE browsers into compatibility mode through the settings,
+          but this is highly unlikely. This tag can be safely omitted. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make the viewport as wide as the screen and force browsers to start 
+          with a 100% zoom. 
+          The actual viewport (called virtual viewport) on which websites render
+          their pages is bigger that the screen size on mobile phones. This 
+          was made so that mobile users could view desktop websites properly
+          (users need to scroll around and zoom). However, to make mobile-optimized 
+          sites it is necessary to make the size of the viewport as wide as the screen.
+          If not, media queries will not get activated, because they depend on the 
+          size of this viewport. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- It is possible to change the behaviour of search engine crawlers through
+         the use of the "robots" meta tag (there are also other ways). The "all" directive
+         tells crawlers to index the page and follow links, which is already the default
+         behavior of crawlers. Therefore, this tag can be safely omitted.-->
     <meta name="ROBOTS" content="ALL" />
+    <!-- Prevents IE6 (beta version) of inserting "Smart Tags" into the website.
+          "Smart Tags" is a feature that adds third-party links to specific keywords
+          on the website. This feature was met with serious criticism in 2001 when
+          IE6 was being released. Consequently, Microsoft never released this feature.
+          This tag could be safely omitted.-->
     <meta name="MSSmartTagsPreventParsing" content="true" />
+    <!-- Tag to specify the copyright owner of the page. This meta tag was part of the 
+          html4 standard, but isn't in html5. There is little use for this meta tag, 
+          especially because it is not part of any standard.
+          This tag could be safely omitted. -->
     <meta name="Copyright" content="Django Software Foundation" />
+    <!-- Tag to specify keywords for search engines. Search engines are no longer
+          using this meta tag to rank websites, therefore it could be safely omitted.-->
     <meta name="keywords" content="Python, Django, framework, open-source" />
+    <!-- Specify a description for the page in search engines results. Does not
+          impact page rank in search engines. -->
     <meta name="description" content="{% block description %}{% endblock %}" />
 
     {% block link_rel_tags %}{% endblock link_rel_tags %}
